@@ -2,7 +2,8 @@ export function formatNetworkSpeed(sensorsInstantiator) {
     const count = sensorsInstantiator.count;
     let sum = 0;
     for (var i = 0; i < count; i++) {
-        sum += sensorsInstantiator.objectAt(i).value;
+        // value can be `undefined` on startup
+        sum += sensorsInstantiator.objectAt(i).value || 0;
     }
     const unit = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB'];
     let unitIndex = 0;
