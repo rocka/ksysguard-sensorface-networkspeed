@@ -6,6 +6,6 @@ SensorFace {
     contentItem: TotalNetworkSpeed {
         sensorIds: root.controller.highPrioritySensorIds
         updateRateLimit: root.controller.updateRateLimit
-        labelWidth: root.controller.faceConfiguration.labelWidth
+        config: root.controller.faceConfiguration
     }
 }

@@ -4,10 +4,33 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <!-- https://develop.kde.org/docs/features/configuration/kconfig_xt/ -->
+  <kcfgfile name=""/>
   <group name="General">
     <entry name="labelWidth" type="Int">
-      <label>Width of the text label.</label>
       <default>48</default>
+    </entry>
+    <entry name="leftMargin" type="Int">
+      <default>0</default>
+    </entry>
+    <entry name="rightMargin" type="Int">
+      <default>0</default>
+    </entry>
+    <entry name="unitStyle" type="Enum">
+      <choices>
+        <choice name="BitRate">
+          <label>Bit rates (G/M/Kbps)</label>
+        </choice>
+        <choice name="Metric">
+          <label>Metric prefixes (G/M/kB)</label>
+        </choice>
+        <choice name="Binary">
+          <label>Binary prefixes (Gi/Mi/KiB)</label>
+        </choice>
+      </choices>
+      <default>2</default> <!-- Binary -->
+    </entry>
+    <entry name="shortUnit" type="Bool">
+      <default>true</default>
     </entry>
   </group>
 </kcfg>
