@@ -14,6 +14,8 @@ ColumnLayout {
     property int updateRateLimit
     property var config
 
+    property var sensors: []
+
     Instantiator {
         id: sensorsInstantiator
         model: root.sensorIds
@@ -23,6 +25,15 @@ ColumnLayout {
             updateRateLimit: root.updateRateLimit
         }
 
+        // https://invent.kde.org/plasma/libksysguard/-/blob/Plasma/6.1/faces/facepackages/textonly/contents/ui/GroupedText.qml#L127
+        onObjectAdded: function (idx, obj) {
+            root.sensors.push(obj)
+            root.sensors = root.sensors
+        }
+        onObjectRemoved: function (idx, obj) {
+            root.sensors.splice(root.sensors.indexOf(obj), 1)
+            root.sensors = root.sensors
+        }
     }
 
     RowLayout {
@@ -36,7 +47,7 @@ ColumnLayout {
             Layout.rightMargin: config.rightMargin
             horizontalAlignment: Text.AlignRight
             color: Kirigami.Theme.textColor
-            text: Util.formatNetworkSpeed(sensorsInstantiator, config.unitStyle, config.shortUnit)
+            text: Util.formatNetworkSpeed(root.sensors, config.unitStyle, config.shortUnit)
         }
     }
 }

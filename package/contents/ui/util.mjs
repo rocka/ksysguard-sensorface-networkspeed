@@ -41,12 +41,12 @@ export const Unit = {
     PetaBitRate: MetricPrefix.Peta + 500
 };
 
-export function formatNetworkSpeed(sensorsInstantiator, unitStyle, shortUnit) {
-    const count = sensorsInstantiator.count;
+export function formatNetworkSpeed(sensors, unitStyle, shortUnit) {
+    const count = sensors.length;
     // data rate sum in bits
     let sum = 0;
     for (let i = 0; i < count; i++) {
-        const { unit, value } = sensorsInstantiator.objectAt(0);
+        const { unit, value } = sensors[i];
         // value can be `undefined` on startup
         if (unit === Unit.Invalid || value === undefined) {
             continue;
