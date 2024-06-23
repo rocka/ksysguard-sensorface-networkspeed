@@ -1,0 +1,19 @@
+{
+    "KPackageStructure": "KSysguard/SensorFace",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "i@rocka.me",
+                "Name": "Rocket Aaron"
+            }
+        ],
+        "Icon": "network-connect",
+        "Id": "me.rocka.ksysguard.networkspeed",
+        "License": "GPLv3",
+        "Name": "Network Speed",
+        "Version": "0.1",
+        "Website": "",
+        "Description": "Show summed value of network speed sensors."
+    },
+    "X-KDE-ParentApp": "org.kde.plasmashell"
+}
